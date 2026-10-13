@@ -17,8 +17,10 @@ import {
   RefreshCw,
   Users,
   X,
+  Cloud,
+  CheckCircle
 } from "lucide-react";
-
+import { useDriveStatus } from "../hooks/useDriveStatus";
 import { supabase } from "../services/supabase";
 import { API_URL } from "../services/api";
 import {
@@ -55,6 +57,7 @@ function resolveUrl(path?: string) {
 }
 
 export default function AdminDashboard() {
+  const driveStatus = useDriveStatus();
   const client = useQueryClient();
   const navigate = useNavigate();
   const fileInput = useRef<HTMLInputElement>(null);
@@ -181,13 +184,25 @@ export default function AdminDashboard() {
 
             <button
               onClick={() => google.mutate()}
-              disabled={google.isPending}
+              disabled={google.isPending || driveStatus.isLoading}
               className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-semibold text-gray-700 transition hover:bg-gray-100 disabled:opacity-50"
             >
-              {google.isPending && (
-                <LoaderCircle size={17} className="animate-spin" />
+              {google.isPending ? (
+                <>
+                  <LoaderCircle size={17} className="animate-spin" />
+                  Conectando...
+                </>
+              ) : driveStatus.data?.connected ? (
+                <>
+                  <CheckCircle size={17} className="text-green-600" />
+                  Google Drive conectado
+                </>
+              ) : (
+                <>
+                  <Cloud size={17} />
+                  Conectar Google Drive
+                </>
               )}
-              {google.isPending ? "Conectando..." : "Google Drive"}
             </button>
 
             <button
