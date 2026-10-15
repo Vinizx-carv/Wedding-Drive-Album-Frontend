@@ -130,7 +130,7 @@ export default function GuestEvent() {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-5 sm:px-6">
           <a href="#inicio" className="flex items-center gap-3">
             <span className="flex size-11 items-center justify-center rounded-full bg-rose-50 text-rose-500">
-              <Heart size={21} />
+              <Camera size={23} />
             </span>
 
             <span>

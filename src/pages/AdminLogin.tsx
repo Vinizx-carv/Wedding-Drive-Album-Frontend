@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { Link, useNavigate } from "react-router-dom";
-import { Heart, LoaderCircle } from "lucide-react";
+import { Camera, Heart, LoaderCircle } from "lucide-react";
 import { supabase } from "../services/supabase";
 
 export default function AdminLogin() {
@@ -48,7 +48,7 @@ export default function AdminLogin() {
       <section className="w-full max-w-md rounded-2xl border border-gray-200 bg-white p-6 shadow-lg shadow-gray-200/50 sm:p-8">
         <div className="mb-8 text-center">
           <div className="mx-auto mb-5 flex size-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
-            <Heart size={28} strokeWidth={1.8} />
+            <Camera size={23} strokeWidth={1.8} />
           </div>
 
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">
@@ -134,7 +134,7 @@ export default function AdminLogin() {
 
         <div className="mt-6 border-t border-gray-100 pt-5 text-center">
           <p className="text-xs leading-5 text-gray-500">
-            A conta administrativa precisa estar cadastrada no Supabase.
+             Momentos especiais merecem ser lembrados.
           </p>
 
           
