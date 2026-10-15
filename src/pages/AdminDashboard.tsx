@@ -31,23 +31,27 @@ import {
   listEvents,
 } from "../services/adminService";
 
+
 type EventItem = {
   id: string;
   name: string;
-  eventDate?: string;
   event_date?: string;
-  publicToken?: string;
+  eventDate?: string;
   public_token?: string;
-  token?: string;
+  publicToken?: string;
   coverUrl?: string;
   cover_url?: string;
   maxPhotosPerGuest?: number;
   maxGuests?: number;
   photoCount?: number;
-  photosCount?: number;
   visitorCount?: number;
-  visitsCount?: number;
+  stats?: {
+    uniqueVisitors: number;
+    totalPhotos: number;
+    featuredPhotos: number;
+  };
 };
+
 
 function resolveUrl(path?: string) {
   if (!path) return "";
@@ -430,8 +434,6 @@ export default function AdminDashboard() {
               const cover = resolveUrl(event.coverUrl || event.cover_url);
               const expanded = expandedEvent === event.id;
 
-              const photoCount = event.photoCount ?? event.photosCount;
-              const visitorCount = event.visitorCount ?? event.visitsCount;
 
               return (
                 <article
@@ -480,7 +482,7 @@ export default function AdminDashboard() {
                         <span className="text-xs">Fotos enviadas</span>
                       </div>
                       <p className="mt-2 text-xl font-bold">
-                        {photoCount ?? "—"}
+                        {event.stats?.totalPhotos ?? "—"}
                       </p>
                     </div>
 
@@ -490,7 +492,7 @@ export default function AdminDashboard() {
                         <span className="text-xs">Visitas registradas</span>
                       </div>
                       <p className="mt-2 text-xl font-bold">
-                        {visitorCount ?? "—"}
+                        {event.stats?.uniqueVisitors ?? "—"}
                       </p>
                     </div>
                   </div>
