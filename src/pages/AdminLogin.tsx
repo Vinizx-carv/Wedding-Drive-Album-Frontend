@@ -52,7 +52,7 @@ export default function AdminLogin() {
           </div>
 
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">
-            Wedding Drive Album
+            Seu Momento
           </p>
 
           <h1 className="text-2xl font-bold tracking-tight text-gray-900">

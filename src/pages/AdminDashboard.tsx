@@ -164,7 +164,7 @@ export default function AdminDashboard() {
         <header className="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
           <div>
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-blue-600">
-              Wedding Drive Album
+               Seu Momento
             </p>
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
               Seus eventos
